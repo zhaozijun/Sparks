@@ -7,7 +7,7 @@
 
 <p>
   <b>Author:</b>
-  <%= @paper.author %>
+  <%= @paper.author.name %>
 </p>
 
 <p>

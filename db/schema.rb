@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150411045522) do
+ActiveRecord::Schema.define(:version => 20150411201335) do
 
   create_table "authors", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -33,8 +33,13 @@ ActiveRecord::Schema.define(:version => 20150411045522) do
 
   create_table "papers", :force => true do |t|
     t.string   "title"
+    t.integer  "author_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "file"
+    t.string   "demo"
   end
+
+  add_index "papers", ["author_id"], :name => "index_papers_on_author_id"
 
 end

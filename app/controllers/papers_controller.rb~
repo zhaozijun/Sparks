@@ -42,6 +42,6 @@ class PapersController < ApplicationController
     end
 
     def user_params
-      params.require(:paper).permit(:title, :file, :demo)
+      params.require(:paper).permit(:title, :file)
     end
 end

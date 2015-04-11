@@ -9,12 +9,9 @@
 #  updated_at :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+class Paper < ActiveRecord::Base
+  belongs_to :author
+  attr_accessible :title, :author_id, :file
 
-one:
-  title: MyString
-  author: 
-
-two:
-  title: MyString
-  author: 
+  mount_uploader :file, FileUploader
+end

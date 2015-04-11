@@ -3,20 +3,20 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Author</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @papers.each do |paper| %>
-  <% if paper.author_id == current_author.id%>
-	<tr>
+  <tr>
     <td><%= paper.title %></td>
+    <td><%= paper.author %></td>
     <td><%= link_to 'Show', paper %></td>
     <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
     <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-	<% end %>
 <% end %>
 </table>
 
