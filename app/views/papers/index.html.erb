@@ -12,7 +12,7 @@
 <% @papers.each do |paper| %>
   <tr>
     <td><%= paper.title %></td>
-    <td><%= paper.author %></td>
+    <td><%= paper.author.email %></td>
     <td><%= link_to 'Show', paper %></td>
     <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
     <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>

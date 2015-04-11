@@ -4,7 +4,7 @@ class PapersController < ApplicationController
   respond_to :html
 
   def index
-    @papers = Paper.all
+    @papers = current_author.papers.all
     respond_with(@papers)
   end
 
@@ -13,7 +13,7 @@ class PapersController < ApplicationController
   end
 
   def new
-    @paper = Paper.new
+    @paper = current_author.papers.new
     respond_with(@paper)
   end
 
@@ -21,7 +21,7 @@ class PapersController < ApplicationController
   end
 
   def create
-    @paper = Paper.new(params[:paper])
+    @paper = current_author.papers.new(params[:paper])
     @paper.save
     respond_with(@paper)
   end
