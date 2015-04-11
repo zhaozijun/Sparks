@@ -1,4 +1,7 @@
 SPARKs::Application.routes.draw do
+  resources :papers
+
+
   devise_for :authors
 
   # The priority is based upon order of creation:
