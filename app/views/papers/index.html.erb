@@ -9,12 +9,14 @@
   </tr>
 
 <% @papers.each do |paper| %>
-  <tr>
+  <% if paper.author_id == current_author.id%>
+	<tr>
     <td><%= paper.title %></td>
     <td><%= link_to 'Show', paper %></td>
     <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
     <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+	<% end %>
 <% end %>
 </table>
 
