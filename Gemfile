@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.21'
-
+gem 'test-unit'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'paperclip'
 gem 'sqlite3'
 gem 'devise'
 gem 'annotate'

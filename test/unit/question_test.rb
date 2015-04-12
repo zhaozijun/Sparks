@@ -1,19 +1,18 @@
 # == Schema Information
 #
-# Table name: papers
+# Table name: questions
 #
 #  id         :integer          not null, primary key
-#  title      :string(255)
-#  author_id  :integer
+#  content    :text
+#  anwsertext :text
+#  paper_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  file       :string(255)
-#  demo       :string(255)
 #
 
 require 'test_helper'
 
-class PaperTest < ActiveSupport::TestCase
+class QuestionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

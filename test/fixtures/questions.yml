@@ -1,22 +1,25 @@
 # == Schema Information
 #
-# Table name: papers
+# Table name: questions
 #
 #  id         :integer          not null, primary key
-#  title      :string(255)
-#  author_id  :integer
+#  content    :text
+#  anwsertext :text
+#  paper_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  file       :string(255)
-#  demo       :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  author: 
+  id: 1
+  content: MyText
+  anwsertext: MyText
+  paper: 
 
 two:
-  title: MyString
-  author: 
+  id: 1
+  content: MyText
+  anwsertext: MyText
+  paper: 

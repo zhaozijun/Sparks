@@ -1,0 +1,53 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table style="width:100%">
+
+<tr>
+<td style="width:50%">Please add your question:"</td>
+<td style="width:50%">Please upload your anwser image:</td>
+</tr>
+
+  <tr>
+    <td style="width:50%">
+       <div class="field">
+       <%= f.label :id %><br />
+       <%= f.number_field :id %>
+       </div>
+   </td>
+   <td sytle="width:50%">
+       <div class ="field" style="float: center">
+       <%= f.file_field :avatar %>    
+       </div> 
+   </td>
+  </tr>
+  <tr>
+    <td sytle="width:50%">
+       <div class="field">
+       <%= f.label :content %><br />
+       <%= f.text_area :content %>
+       </div> 
+    </td>
+    <td sytle="width:50%">
+        <div class="field">
+        <%= f.label :anwsertext %><br />
+        <%= f.text_area :anwsertext %>
+        </div>
+    </td>
+  </tr>  
+</table>
+<div class="actions" style="float:right">
+    <%= f.submit %>
+  </div>
+
+ <% end %>

@@ -7,6 +7,8 @@
 #  author_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  file       :string(255)
+#  demo       :string(255)
 #
 
 class Paper < ActiveRecord::Base
