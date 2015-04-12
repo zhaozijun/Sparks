@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Id</th>
+		<th>No.</th>
     <th>Content</th>
     <th>Anwsertext</th>
     <th>Paper</th>
@@ -11,19 +11,19 @@
     <th></th>
   </tr>
 
-<% @questions.each do |question| %>
+<% @questions.each_with_index do |question, index| %>
   <tr>
-    <td><%= question.id %></td>
+    <td><%= index + 1 %></td>
     <td><%= question.content %></td>
     <td><%= question.anwsertext %></td>
-    <td><%= question.paper %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', author_paper_question_path(current_author, @paper, question) %></td>
+    <td><%= link_to 'Edit', edit_author_paper_question_path(current_author, @paper, question) %></td>
+    <td><%= link_to 'Destroy', [current_author, @paper, question], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'New Question', new_author_paper_question_path(current_author, @paper) %><br />
+<%= link_to 'Back to Paper List Page', author_papers_path(current_author)%>

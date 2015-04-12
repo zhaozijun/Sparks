@@ -12,7 +12,7 @@
 
 class Question < ActiveRecord::Base
   belongs_to :paper
-  attr_accessible :content, :id, :paper_id, :avatar, :anwsertext 
+  attr_accessible :content, :paper_id, :avatar, :anwsertext 
   validates :content, presence: true
   validates :avatar,
      attachment_content_type: {content_type: /\Aimage\/.*\z/ }

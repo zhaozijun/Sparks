@@ -1,13 +1,11 @@
 SPARKs::Application.routes.draw do
-  
-
-  resources :questions
-
 
   devise_for :authors, :path => "accounts"
   
   resources :authors do
-    resources :papers
+    resources :papers do
+      resources :questions
+    end
   end
   
 

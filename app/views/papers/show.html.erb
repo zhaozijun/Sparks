@@ -22,4 +22,5 @@
 
 
 <%= link_to 'Edit', edit_author_paper_path(current_author, @paper) %> |
-<%= link_to 'Back', author_papers_path(current_author) %>
+<%= link_to 'Back', author_papers_path(current_author) %><br />
+<%= link_to 'Question', author_paper_questions_path(current_author,@paper)%>
