@@ -1,10 +1,13 @@
 SPARKs::Application.routes.draw do
-  resources :papers
+  
 
+  devise_for :authors, :path => "accounts"
+  
+  resources :authors do
+    resources :papers
+  end
+  
 
-  devise_for :authors
-
-  root :to => redirect('/papers')
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

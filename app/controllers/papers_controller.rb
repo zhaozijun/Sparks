@@ -5,16 +5,16 @@ class PapersController < ApplicationController
 
   def index
     @papers = current_author.papers.all
-    respond_with(@papers)
+    respond_with(current_author, @papers)
   end
 
   def show
-    respond_with(@paper)
+    respond_with(current_author, @paper)
   end
 
   def new
     @paper = current_author.papers.new
-    respond_with(@paper)
+    respond_with(current_author, @paper)
   end
 
   def edit
@@ -23,17 +23,17 @@ class PapersController < ApplicationController
   def create
     @paper = current_author.papers.new(params[:paper])
     @paper.save
-    respond_with(@paper)
+    respond_with(current_author, @paper)
   end
 
   def update
     @paper.update_attributes(params[:paper])
-    respond_with(@paper)
+    respond_with(current_author, @paper)
   end
 
   def destroy
     @paper.destroy
-    respond_with(@paper)
+    respond_with(current_author, @paper)
   end
 
   private

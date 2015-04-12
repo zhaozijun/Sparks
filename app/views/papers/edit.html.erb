@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @paper %> |
-<%= link_to 'Back', papers_path %>
+<%= link_to 'Show', author_paper_path(current_author) %> |
+<%= link_to 'Back', author_papers_path(current_author) %>

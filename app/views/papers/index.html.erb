@@ -13,13 +13,13 @@
   <tr>
     <td><%= paper.title %></td>
     <td><%= paper.author.email %></td>
-    <td><%= link_to 'Show', paper %></td>
-    <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
-    <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', author_paper_path(current_author, paper) %></td>
+    <td><%= link_to 'Edit', edit_author_paper_path(current_author, paper) %></td>
+    <td><%= link_to 'Destroy', author_paper_path(current_author, paper), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Paper', new_paper_path %>
+<%= link_to 'New Paper', new_author_paper_path(current_author) %>
