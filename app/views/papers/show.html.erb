@@ -13,11 +13,13 @@
 <p>
   <b>File:</b>
   <%= @paper.file %>
+	<%= link_to 'Download Paper', @paper.file_url%>
 </p>
 
 <p>
   <b>Demo:</b>
   <%= @paper.demo %>
+	<%= link_to 'Download Demo', @paper.demo_url%>
 </p>
 
 
