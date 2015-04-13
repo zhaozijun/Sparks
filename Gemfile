@@ -10,7 +10,6 @@ gem 'devise'
 gem 'annotate'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
-
 gem 'carrierwave'
 
 # Gems used only for assets and not required
