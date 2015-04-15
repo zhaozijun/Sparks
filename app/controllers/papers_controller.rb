@@ -1,6 +1,6 @@
 class PapersController < ApplicationController
   before_filter :set_paper, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :authenticate_author!, only: [:userindex, :userpapershow]
   respond_to :html
 
   def index

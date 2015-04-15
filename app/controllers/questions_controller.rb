@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_filter :set_question, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :authenticate_author!, only: [:userquestionindex, :userquestionshow]
   respond_to :html
 
   def index
