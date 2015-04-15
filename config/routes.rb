@@ -1,13 +1,20 @@
 SPARKs::Application.routes.draw do
-
+  
+  root :to => 'papers#userindex'
+  
+  get 'papers/:id' => 'papers#userpapershow', :as => :paper_userpapershow
+  get 'papers/:paper_id/userquestionindex' => 'questions#userquestionindex', :as => :question_userquestionindex
+  get 'papers/:paper_id/userquestions/:id' => 'questions#userquestionshow', :as => :question_userquestionshow
+  
   devise_for :authors, :path => "accounts"
   
-  resources :authors do
-    resources :papers do
-      resources :questions
-    end
+  resources :authors, :except => [:index, :create, :new, :edit, :show, :update, :destroy] do
+    resources :papers
   end
   
+  resources :papers, :except => [:index, :create, :new, :edit, :show, :update, :destroy] do
+    resources :questions
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -35,6 +35,14 @@ class PapersController < ApplicationController
     @paper.destroy
     respond_with(current_author, @paper)
   end
+  
+  def userindex
+    @papers = Paper.all 
+  end
+  
+  def userpapershow
+    @paper = Paper.find(params[:id])
+  end
 
   private
     def set_paper

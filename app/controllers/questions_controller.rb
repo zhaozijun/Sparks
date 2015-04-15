@@ -4,43 +4,53 @@ class QuestionsController < ApplicationController
   respond_to :html
 
   def index
-    @paper = current_author.papers.find(params[:paper_id])
+    @paper = Paper.find(params[:paper_id])
     @questions = @paper.questions.all
-    respond_with(current_author, @paper, @questions)
+    respond_with(@paper, @questions)
   end
 
   def show
-    @paper = current_author.papers.find(params[:paper_id])
-    respond_with(current_author, @paper, @question)
+    @paper = Paper.find(params[:paper_id])
+    respond_with(@paper, @question)
   end
 
   def new
-    @paper = current_author.papers.find(params[:paper_id])
+    @paper = Paper.find(params[:paper_id])
     @question = @paper.questions.new
-    respond_with(current_author, @paper, @question)
+    respond_with(@paper, @question)
   end
 
   def edit
-    @paper = current_author.papers.find(params[:paper_id])
+    @paper = Paper.find(params[:paper_id])
   end
 
   def create
-    @paper = current_author.papers.find(params[:paper_id])
+    @paper = Paper.find(params[:paper_id])
     @question = @paper.questions.new(params[:question])
     @question.save
-    respond_with(current_author, @paper, @question)
+    respond_with(@paper, @question)
   end
 
   def update
-    @paper = current_author.papers.find(params[:paper_id])
+    @paper = Paper.find(params[:paper_id])
     @question.update_attributes(params[:question])
-    respond_with(current_author, @paper, @question)
+    respond_with(@paper, @question)
   end
 
   def destroy
-    @paper = current_author.papers.find(params[:paper_id])
+    @paper = Paper.find(params[:paper_id])
     @question.destroy
-    respond_with(current_author, @paper, @question)
+    respond_with(@paper, @question)
+  end
+  
+  def userquestionindex
+    @paper = Paper.find(params[:paper_id])
+    @questions = @paper.questions.all
+  end
+  
+  def userquestionshow
+    @paper = Paper.find(params[:paper_id])
+    @question = @paper.questions.find(params[:id])
   end
 
   private

@@ -16,14 +16,14 @@
     <td><%= index + 1 %></td>
     <td><%= question.content %></td>
     <td><%= question.anwsertext %></td>
-    <td><%= link_to 'Show', author_paper_question_path(current_author, @paper, question) %></td>
-    <td><%= link_to 'Edit', edit_author_paper_question_path(current_author, @paper, question) %></td>
-    <td><%= link_to 'Destroy', [current_author, @paper, question], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', paper_question_path(@paper, question) %></td>
+    <td><%= link_to 'Edit', edit_paper_question_path(@paper, question) %></td>
+    <td><%= link_to 'Destroy', [@paper, question], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Question', new_author_paper_question_path(current_author, @paper) %><br />
+<%= link_to 'New Question', new_paper_question_path(@paper) %><br />
 <%= link_to 'Back to Paper List Page', author_papers_path(current_author)%>
