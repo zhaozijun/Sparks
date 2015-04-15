@@ -21,10 +21,24 @@
       <%= f.file_field :file %>
   </div>
 
+  <p>
+    <label>
+      <%= f.check_box :remove_file %>
+      Remove File
+    </label>
+  </p>
+
   <div class="field">
       <%= f.label :demo %><br>
       <%= f.file_field :demo %>
   </div>
+
+  <p>
+    <label>
+      <%= f.check_box :remove_demo %>
+      Remove Demo
+    </label>
+  </p>
 
   <div class="actions">
     <%= f.submit %>

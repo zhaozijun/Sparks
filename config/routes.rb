@@ -1,3 +1,38 @@
+# == Route Map
+#
+#                       root        /                                              papers#userindex
+#        paper_userpapershow GET    /papers/:id(.:format)                          papers#userpapershow
+# question_userquestionindex GET    /papers/:paper_id/userquestionindex(.:format)  questions#userquestionindex
+#  question_userquestionshow GET    /papers/:paper_id/userquestions/:id(.:format)  questions#userquestionshow
+#         new_author_session GET    /accounts/sign_in(.:format)                    devise/sessions#new
+#             author_session POST   /accounts/sign_in(.:format)                    devise/sessions#create
+#     destroy_author_session DELETE /accounts/sign_out(.:format)                   devise/sessions#destroy
+#            author_password POST   /accounts/password(.:format)                   devise/passwords#create
+#        new_author_password GET    /accounts/password/new(.:format)               devise/passwords#new
+#       edit_author_password GET    /accounts/password/edit(.:format)              devise/passwords#edit
+#                            PUT    /accounts/password(.:format)                   devise/passwords#update
+# cancel_author_registration GET    /accounts/cancel(.:format)                     devise/registrations#cancel
+#        author_registration POST   /accounts(.:format)                            devise/registrations#create
+#    new_author_registration GET    /accounts/sign_up(.:format)                    devise/registrations#new
+#   edit_author_registration GET    /accounts/edit(.:format)                       devise/registrations#edit
+#                            PUT    /accounts(.:format)                            devise/registrations#update
+#                            DELETE /accounts(.:format)                            devise/registrations#destroy
+#              author_papers GET    /authors/:author_id/papers(.:format)           papers#index
+#                            POST   /authors/:author_id/papers(.:format)           papers#create
+#           new_author_paper GET    /authors/:author_id/papers/new(.:format)       papers#new
+#          edit_author_paper GET    /authors/:author_id/papers/:id/edit(.:format)  papers#edit
+#               author_paper GET    /authors/:author_id/papers/:id(.:format)       papers#show
+#                            PUT    /authors/:author_id/papers/:id(.:format)       papers#update
+#                            DELETE /authors/:author_id/papers/:id(.:format)       papers#destroy
+#            paper_questions GET    /papers/:paper_id/questions(.:format)          questions#index
+#                            POST   /papers/:paper_id/questions(.:format)          questions#create
+#         new_paper_question GET    /papers/:paper_id/questions/new(.:format)      questions#new
+#        edit_paper_question GET    /papers/:paper_id/questions/:id/edit(.:format) questions#edit
+#             paper_question GET    /papers/:paper_id/questions/:id(.:format)      questions#show
+#                            PUT    /papers/:paper_id/questions/:id(.:format)      questions#update
+#                            DELETE /papers/:paper_id/questions/:id(.:format)      questions#destroy
+#
+
 SPARKs::Application.routes.draw do
   
   root :to => 'papers#userindex'
