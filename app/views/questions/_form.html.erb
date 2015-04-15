@@ -21,7 +21,8 @@
   <tr>
     <td style="width:50%">
        <div class="field">
-       
+         <%= f.label :id %><br />
+         <%= f.number_field :id %> 
        </div>
    </td>
    <td sytle="width:50%">
@@ -44,6 +45,15 @@
         </div>
     </td>
   </tr>  
+<tr>
+<td style="width:50%"></td>
+<td style="width:50%">
+       <div class="field">
+         <%= f.label :tag %><br />
+         <%= f.text_field :tag %> 
+       </div>
+<td>
+</tr>
 </table>
 <div class="actions" style="float:right">
     <%= f.submit %>

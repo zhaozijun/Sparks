@@ -1,4 +1,4 @@
-<%= form_for(@question) do |f| %>
+<%= form_for([Paper.find(params[:paper_id]), @question]) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -14,15 +14,15 @@
 <table style="width:100%">
 
 <tr>
-<td style="width:50%">Please add your question:"</td>
+<td style="width:50%">Please add your question:</td>
 <td style="width:50%">Please upload your anwser image:</td>
 </tr>
 
   <tr>
     <td style="width:50%">
        <div class="field">
-       <%= f.label :id %><br />
-       <%= f.number_field :id %>
+         <%= f.label :id %><br />
+         <%= f.number_field :id %> 
        </div>
    </td>
    <td sytle="width:50%">
@@ -45,8 +45,17 @@
         </div>
     </td>
   </tr>  
+<tr>
+<td style="width:50%"></td>
+<td style="width:50%">
+       <div class="field">
+         <%= f.label :tag %><br />
+         <%= f.string_field :tag %> 
+       </div>
+<td>
+</tr>
 </table>
-<div class="actions" style="align:center">
+<div class="actions" style="float:right">
     <%= f.submit %>
   </div>
 

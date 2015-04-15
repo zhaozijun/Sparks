@@ -12,11 +12,12 @@
 #  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  tag                 :string(255)
 #
 
 class Question < ActiveRecord::Base
   belongs_to :paper
-  attr_accessible :content, :paper_id, :avatar, :anwsertext 
+  attr_accessible :content, :paper_id, :avatar, :anwsertext,:tag 
   validates :content, presence: true
   validates :avatar,
      attachment_content_type: {content_type: /\Aimage\/.*\z/ }
