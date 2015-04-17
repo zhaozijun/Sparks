@@ -1,0 +1,19 @@
+<h1>Listing papers</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @papers.each do |paper| %>
+  <tr>
+    <td><%= paper.title %></td>
+    <td><%= paper.author.name %></td>
+    <td><%= link_to 'Show', paper_userpapershow_path(paper) %></td>
+  </tr>
+<% end %>
+</table>
