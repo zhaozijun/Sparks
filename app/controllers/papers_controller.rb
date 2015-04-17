@@ -37,6 +37,9 @@ class PapersController < ApplicationController
   end
   
   def userindex
+    if author_signed_in?
+      sign_out current_author
+    end
     @papers = Paper.all 
   end
   
