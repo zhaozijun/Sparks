@@ -25,3 +25,26 @@
 
 <%= link_to 'Back', root_path %><br />
 <%= link_to 'Question', question_userquestionindex_path(@paper)%>
+
+<table>
+  <tr>
+		<th>No.</th>
+		<th>Tag</th>
+    <th>Content</th>
+    <th>Anwsertext</th>
+    <th>Paper</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each_with_index do |question, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+		<td><%= question.tag %></td>
+    <td><%= question.content %></td>
+    <td><%= question.anwsertext %></td>
+    <td><%= link_to 'Show', paper_question_path(@paper, question) %></td>
+  </tr>
+<% end %>
+</table>

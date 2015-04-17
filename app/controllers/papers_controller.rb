@@ -9,7 +9,10 @@ class PapersController < ApplicationController
   end
 
   def show
-    respond_with(current_author, @paper)
+    @paper = Paper.find(params[:id])
+    @questions = @paper.questions.all
+    respond_with(current_author, @paper, @questions)
+    
   end
 
   def new
@@ -45,6 +48,8 @@ class PapersController < ApplicationController
   
   def userpapershow
     @paper = Paper.find(params[:id])
+    @questions = @paper.questions.all
+    respond_with(current_author, @paper, @questions)
   end
 
   private
