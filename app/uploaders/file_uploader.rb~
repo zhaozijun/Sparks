@@ -2,8 +2,7 @@
 
 class FileUploader < CarrierWave::Uploader::Base
 
-  # include CarrierWave::Viewer
-
+  include CarrierWave::Viewer
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

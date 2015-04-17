@@ -10,7 +10,17 @@ gem 'devise'
 gem 'annotate'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
+
 gem 'carrierwave'
+#gem 'carrierwave-viewer'
+
+group :test, :development do
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'capybara', '~> 2.1.0'
+  gem 'launchy'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
