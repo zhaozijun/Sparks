@@ -40,15 +40,21 @@ class QuestionsController < ApplicationController
   def destroy
     @paper = Paper.find(params[:paper_id])
     @question.destroy
-    respond_with(@paper, @question)
+    redirect_to :back
   end
   
   def userquestionindex
+    if author_signed_in?
+      sign_out current_author
+    end
     @paper = Paper.find(params[:paper_id])
     @questions = @paper.questions.all
   end
   
   def userquestionshow
+    if author_signed_in?
+      sign_out current_author
+    end
     @paper = Paper.find(params[:paper_id])
     @question = @paper.questions.find(params[:id])
   end

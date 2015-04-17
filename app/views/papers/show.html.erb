@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Paper information</h1>
+<br />
 <p>
   <b>Title:</b>
   <%= @paper.title %>
@@ -24,9 +26,12 @@
 
 
 
-<%= link_to 'Edit', edit_author_paper_path(current_author, @paper) %> |
-<%= link_to 'Back', author_papers_path(current_author) %><br />
-<%= link_to 'Question', paper_questions_path(@paper)%>
+<%= link_to 'Edit Paper', edit_author_paper_path(current_author, @paper) %>
+<br />
+<br />
+
+<h1>List Questions</h1>
+<br />
 
 <table>
   <tr>
@@ -34,7 +39,6 @@
 		<th>Tag</th>
     <th>Content</th>
     <th>Answertext</th>
-    <th>Paper</th>
     <th></th>
     <th></th>
     <th></th>
@@ -52,3 +56,7 @@
   </tr>
 <% end %>
 </table>
+<br />
+<br />
+<%= link_to 'New Question', new_paper_question_path(@paper) %><br />
+<%= link_to 'Back', author_papers_path(current_author) %>

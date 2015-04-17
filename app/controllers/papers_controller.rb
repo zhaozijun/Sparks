@@ -47,6 +47,9 @@ class PapersController < ApplicationController
   end
   
   def userpapershow
+    if author_signed_in?
+      sign_out current_author
+    end
     @paper = Paper.find(params[:id])
     @questions = @paper.questions.all
     respond_with(current_author, @paper, @questions)
