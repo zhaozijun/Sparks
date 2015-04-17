@@ -21,8 +21,7 @@
   <tr>
     <td style="width:50%">
        <div class="field">
-         <%= f.label :id %><br />
-         <%= f.number_field :id %> 
+         
        </div>
    </td>
    <td sytle="width:50%">
@@ -50,7 +49,7 @@
 <td style="width:50%">
        <div class="field">
          <%= f.label :tag %><br />
-         <%= f.string_field :tag %> 
+         <%= f.text_field :tag %> 
        </div>
 <td>
 </tr>
