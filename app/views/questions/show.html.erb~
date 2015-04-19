@@ -11,10 +11,16 @@
 </p>
 
 <p>
+   <b> Anwser file:</b> <br />
+   <%= image_tag @question.avatar.url(:show) %>
+
+</p>
+
+<p>
   <b>Anwser Text:</b>
   <%= @question.answertext %>
 </p>
 
 
 <%= link_to 'Edit', edit_paper_question_path(@paper, @question) %> |
-<%= link_to 'Back', paper_questions_path(@paper) %>
+<%= link_to 'Back', author_paper_path(current_author, @paper) %>

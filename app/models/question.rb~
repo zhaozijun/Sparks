@@ -17,9 +17,9 @@
 
 class Question < ActiveRecord::Base
   belongs_to :paper
-  attr_accessible :content, :paper_id, :avatar, :anwsertext,:tag 
+  attr_accessible :content, :paper_id, :avatar, :answertext,:tag 
   validates :content, presence: true
   validates :avatar,
      attachment_content_type: {content_type: /\Aimage\/.*\z/ }
-  has_attached_file :avatar, :styles => {:medium => "300*300>",:thumb => "100*100>"}
+  has_attached_file :avatar, :styles => {:medium => "300*300>",:thumb => "100*100>",:show => "400*400>"}
 end
