@@ -59,3 +59,28 @@ end
 Then(/^I should be able to see a list of papers from all authors$/) do
   page.has_content?("Listing papers")
 end
+
+
+
+#Given(/^I've successfully signed in$/) do
+#  visit(new_author_session_path)
+#  fill_in 'Email', :with => "zzj@upenn.com"
+#  fill_in 'Password', :with => "000000"
+#  click_button 'Log in' 
+#  @author = Author.create(:email => "zzj@upenn.com", :password => "000000") 
+#end
+
+#Then(/^I want to create a new paper$/) do
+#  visit(new_author_paper_path(@author))
+#end
+
+#When(/^I add a new title and upload files$/) do
+#  fill_in 'Title', :with => "Scientific Research Sharing"
+#  click_button 'Create Paper'
+#end
+
+#Then(/^I should be able to see the new paper's page$/) do
+#  page.has_content?("Paper information")
+#  page.has_content?("List Questions")
+#end
+
