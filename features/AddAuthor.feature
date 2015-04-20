@@ -18,3 +18,5 @@ Feature: Create a author, signin and signout
 		Given I'm on the signin page
 		When I login by using wrong email or password
 		Then I should not be able to see my page
+		
+	

@@ -31,7 +31,10 @@ class PapersController < ApplicationController
 
   def update
     @paper.update_attributes(params[:paper])
-    respond_with(current_author, @paper)
+    #respond_with(current_author, @paper)
+    respond_with [current_author, @paper] do |format|
+        format.html {redirect_to author_paper_path, notice: "Update!"}
+      end
   end
 
   def destroy

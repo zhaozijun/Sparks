@@ -5,8 +5,8 @@ end
 When(/^I add new author$/) do
   fill_in 'Name', :with => "zzj"
   fill_in 'Email', :with => "zzj@upenn.com"
-  fill_in 'Password', :with => "000000", :match => :prefer_exact
-  fill_in 'Password confirmation', :with => "000000", :match => :prefer_exact
+  fill_in 'Password', :with => "00000000", :match => :prefer_exact
+  fill_in 'Password confirmation', :with => "00000000", :match => :prefer_exact
   click_button 'Sign up'
 end
 
@@ -20,7 +20,7 @@ end
 
 When(/^I login by using right email and password$/) do
   fill_in 'Email', :with => "zzj@upenn.com"
-  fill_in 'Password', :with => "000000"
+  fill_in 'Password', :with => "00000000"
   click_button 'Log in'
 end
 
@@ -63,20 +63,24 @@ end
 #########################
 
 Given(/^I've successfully signed in$/) do
-  visit(new_author_session_path)
+  visit(new_author_registration_path)
+  fill_in 'Name', :with => "zzj"
   fill_in 'Email', :with => "zzj@upenn.com"
-  fill_in 'Password', :with => "000000"
-  click_button 'Log in' 
-  @author = Author.create(:email => "zzj@upenn.com", :password => "000000") 
+  fill_in 'Password', :with => "00000000", :match => :prefer_exact
+  fill_in 'Password confirmation', :with => "00000000", :match => :prefer_exact
+  click_button 'Sign up'
 end
 
 Then(/^I want to create a new paper$/) do
-  visit(new_author_paper_path(@author))
+  #visit(new_author_paper_path(@author))
+  visit(new_author_paper_path(:author_id))
 end
 
 When(/^I add a new title and upload files$/) do
   fill_in 'Title', :with => "Scientific Research Sharing"
   click_button 'Create Paper'
+  #@paper = Paper.where(:title => "Scientific Research Sharing")
+  #p @paper.first
 end
 
 Then(/^I should be able to see the new paper's page$/) do
@@ -85,17 +89,19 @@ Then(/^I should be able to see the new paper's page$/) do
 end
 
 Then(/^I want to edit an existed paper$/) do
-  visit(author_papers_path)
-  visit(edit_author_paper_path)
+  visit(new_author_paper_path(:author_id))
+  fill_in 'Title', :with => "Scientific Research Sharing"
+  click_button 'Create Paper'
+  click_link 'Edit Paper'
 end
 
 When(/^I check the remove box$/) do
   check('Remove File')
   check('Remove Demo')
+  click_button 'Update Paper'
 end
 
 Then(/^the file I uploaded before can be removed$/) do
-  visit(author_paper_path)
   page.has_no_content?("/uploads/paper/file")
   page.has_no_content?("/uploads/paper/demo")
 end
