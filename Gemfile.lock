@@ -145,6 +145,8 @@ GEM
     ref (1.0.5)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rscribd (1.3.0)
+      mime-types
     sass (3.4.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -198,6 +200,7 @@ DEPENDENCIES
   less-rails
   paperclip
   rails (= 3.2.21)
+  rscribd
   sass-rails (~> 3.2.3)
   sqlite3
   test-unit
