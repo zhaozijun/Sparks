@@ -84,3 +84,34 @@ end
 #  page.has_content?("List Questions")
 #end
 
+#question steps
+Given(/^I'm on the paper show page$/) do
+visit(author_paper_path)
+end
+When(/^I click New Question button$/) do
+click_button 'New Question'
+end
+Then(/^I should be able to see the new question's page$/) do  
+assert page.has_content?("Please add your question:")
+end
+
+Given(/^I'm on the new question page$/) do
+visit(new_paper_question_path)
+end
+When (/^I add a new answer$/) do
+  fill_in 'Content', :with => "what is definition of Map reduce?"
+  fill_in 'Answertext', :with => "it helps us to sort and search words efficiently."
+  click_button 'Create Question'
+end
+Then (/^I should see a button to choose my anwser file$/) do
+ assert page.has_selector?("input")
+end
+
+When(/^I add a new question without content$/) do
+click_button 'Create Question'
+end
+Then(/^I should see some errors on the page$/) do
+assert page.has_css?('div.field_with_errors')
+end
+#question end
+
