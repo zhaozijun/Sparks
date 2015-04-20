@@ -53,9 +53,10 @@ Then(/^I should not be able to see my page$/) do
 end
 
 Given(/^I'm on the user homepage$/) do
+  #visit(paper_userindex_path)
   visit(root_path)
 end
 
-Then(/^I should be able to see a list of papers from all authors$/) do
+Then(/^I should be able to see all information and files about this paper$/) do
   page.has_content?("Listing papers")
 end

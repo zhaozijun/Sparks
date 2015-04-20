@@ -1,0 +1,6 @@
+Feature: As a user, view all papers
+  
+   Scenario: view papers
+     Given I'm on the user homepage
+     When I want to view the paper 
+     Then I should be able to see all information and files about this paper
