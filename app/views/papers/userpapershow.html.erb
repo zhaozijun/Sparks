@@ -16,13 +16,13 @@
 <p>
   <b>File:</b>
   <%= @paper.file %>
-	<%= link_to 'Download Paper', @paper.file_url%>
+	<%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn'%>
 </p>
 
 <p>
   <b>Demo:</b>
   <%= @paper.demo %>
-	<%= link_to 'Download Demo', @paper.demo_url%>
+	<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn'%>
 </p>
 
 <h1>List Questions</h1>
@@ -45,10 +45,10 @@
 		<td><%= question.tag %></td>
     <td><%= question.content %></td>
     <td><%= question.answertext %></td>
-    <td><%= link_to 'Show', question_userquestionshow_path(@paper, question) %></td>
+    <td><%= link_to 'Show', question_userquestionshow_path(@paper, question), :class => 'btn btn-mini' %></td>
   </tr>
 <% end %>
 </table>
 <br />
 <br />
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path, :class => 'btn' %>
