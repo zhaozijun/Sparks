@@ -1,19 +1,23 @@
-<h1>Listing papers</h1>
+<div class="center jumbotron">
+<h1>Papers List</h1>
 
-<table>
+<table class="center table table-striped">
   <tr>
     <th>Title</th>
     <th>Author</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
+
 
 <% @papers.each do |paper| %>
   <tr>
-    <td><%= paper.title %></td>
+    <td><i><%= paper.title %></i></td>
     <td><%= paper.author.name %></td>
-    <td><%= link_to 'Show', paper_userpapershow_path(paper), :class => 'btn mini' %></td>
+    <td><%= link_to 'Show', paper_userpapershow_path(paper), :class => "btn btn-default btn-small" %></td>
   </tr>
 <% end %>
 </table>
+
+<%= image_tag "papers2.jpg", :class=>"center img-responsive"%>
+
+</div>
