@@ -15,7 +15,7 @@
   <tr>
     <td><i><%= paper.title %></i></td>
     <td><%= paper.author.name %></td>
-    <td><%= link_to 'Show', paper_userpapershow_path(paper), :class => "btn btn-warning btn-small" %></td>
+    <td><%= link_to 'Show', paper_userpapershow_path(paper), :class => "btn btn-primary btn-small" %></td>
   </tr>
 <% end %>
 </table>
