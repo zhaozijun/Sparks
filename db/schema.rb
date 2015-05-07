@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20150507215559) do
+=======
+ActiveRecord::Schema.define(:version => 20150417200532) do
+>>>>>>> 0496174549f91fafd9af9211091ad072514a4d0a
 
   create_table "authors", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
