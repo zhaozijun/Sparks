@@ -11,51 +11,60 @@
     </div>
   <% end %>
 
-<table style="width:100%">
+<style type="text/css">
+#wrap {
+   width:100%;
+   height: 100%;
+   margin:0 auto;
+}
+#left_col {
+   float:left;
+   width:45%;
+   height:100%;
+   background: #66CCFF;
+   border: 10px solid #66CCFf;
+}
+#right_col {
+   float:right;
+   width:45%;
+   height:100%;
+   background: #66CCFF;
+   border: 10px solid #66CCFF;
+}
+</style>
 
-<tr>
-<td style="width:50%"> <font size="6">Please add your question:</font> </td>
-<td style="width:50%"><font size="8">Please upload your anwser image:</font></td>
-</tr>
-
-  <tr>
-    <td style="width:50%">
-       <div class="field">
-         
-       </div>
-   </td>
-   <td sytle="width:50%">
-       <div class ="field" style="float: center">
-       <%= f.file_field :avatar %>    
-       </div> 
-   </td>
-  </tr>
-  <tr>
-    <td sytle="width:50%">
-       <div class="field">
-       <%= f.label :content %><br />
-       <%= f.text_area :content %>
-       </div> 
-    </td>
-    <td sytle="width:50%">
+<div id="wrap">
+    <div id="left_col">
+         <h3>Please add your question:</h3>
+         <div class="field">
+         </div>
+         <div class="field">
+         <%= f.label :content %><br />
+         <%= f.text_area :content %>
+         </div> 
+         <div class="actions" style="float:left">
+         <%= f.submit %>
+         </div>
+         <br />
+         <%= link_to 'Back', paper_questions_path(@paper),:class => 'btn btn-lg btn-primary'%>
+    </div>
+     <div id="right_col">
+        <h3>Please upload your anwser image:</h3> <br />
+         <%= f.file_field :image %><br />            
+          <div class ="field" style="float: center"><br />              
+             <%= f.label :remote_image_url %><br />
+             <%= f.text_field :remote_image_url %>
+        </div> 
         <div class="field">
         <%= f.label :answertext %><br />
         <%= f.text_area :answertext %>
         </div>
-    </td>
-  </tr>  
-<tr>
-<td style="width:50%"></td>
-<td style="width:50%">
-       <div class="field">
+         <div class="field">
          <%= f.label :tag %><br />
          <%= f.text_field :tag %> 
        </div>
-<td>
-</tr>
-</table>
-<div class="actions" style="float:right">
-    <%= f.submit %>
-  </div>
+    </div>
+
+</div>
 
  <% end %>

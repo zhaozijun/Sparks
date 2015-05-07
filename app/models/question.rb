@@ -17,9 +17,10 @@
 
 class Question < ActiveRecord::Base
   belongs_to :paper
-  attr_accessible :content, :paper_id, :avatar, :answertext,:tag 
+  attr_accessible :content, :paper_id, :image, :answertext,:tag, :remote_image_url 
   validates :content, presence: true
-  validates :avatar,
-     attachment_content_type: {content_type: /\Aimage\/.*\z/ }
-  has_attached_file :avatar, :styles => {:medium => "300*300>",:thumb => "100*100>",:show => "500*500>"}
+ # validates :avatar,
+  #   attachment_content_type: {content_type: /\Aimage\/.*\z/ }
+  #has_attached_file :avatar, :styles => {:medium => "300*300>",:thumb => "100*100>",:show => "500*500>"}
+  mount_uploader :image, ImageUploader
 end
