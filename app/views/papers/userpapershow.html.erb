@@ -1,60 +1,59 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
-<div class="row">
-<h1>Paper information</h1>
-<br />
-
-<p>
-  <b>Title:</b>
-  <%= @paper.title %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%= @paper.author.name %>
-</p>
-
-<p>
-  <b>File:</b>
-  <%= @paper.file %>
-	<%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn'%>
-</p>
-
-<p>
-  <b>Demo:</b>
-  <%= @paper.demo %>
-	<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn'%>
-</p>
-
-<div class="row">
-	<h1>List Questions</h1>
-	<br />
-	<div class="span6">
-		<table class="center table table-striped">
-  		<tr>
-				<th>No.</th>
-				<th>Tag</th>
-    		<th>Content</th>
-				<th></th>
-  		</tr>
-
-			<% @questions.each_with_index do |question, index| %>
-  		<tr>
-    		<td><%= index + 1 %></td>
-				<td><%= question.tag %></td>
-    		<td><%= question.content %></td>
-    		<td><a href="/papers/<%=@paper.id%>/answer/<%= question.id %>" target="a">Show</a></td>
-  		</tr>
-			<% end %>
-		</table>
+	<p id="notice"><%= notice %></p>
+	<div class="row">
+		<h1>Paper information</h1>
 		<br />
+		<div class="container", background-color:#000000>
+			<p>
+  			<b>Title:</b>
+  			<%= @paper.title %>
+			</p>
+
+			<p>
+  			<b>Author:</b>
+  			<%= @paper.author.name %>
+			</p>
+
+			<p>
+  			<b>File:</b>
+  			<%= @paper.file %>
+				<%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn'%>
+			</p>
+
+			<p>
+  			<b>Demo:</b>
+  			<%= @paper.demo %>
+				<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn'%>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<h1>List Questions</h1>
 		<br />
-		
-	</div>
+		<div class="span6">
+			<table class="center table table-striped">
+  			<tr>
+					<th>No.</th>
+					<th>Tag</th>
+    			<th>Content</th>
+					<th></th>
+  			</tr>
+
+				<% @questions.each_with_index do |question, index| %>
+  			<tr>
+    			<td><%= index + 1 %></td>
+					<td><%= question.tag %></td>
+    			<td><%= question.content %></td>
+    			<td><a href="/papers/<%=@paper.id%>/answer/<%= question.id %>" target="a">Show</a></td>
+  			</tr>
+				<% end %>
+			</table>
+			<br />
+			<br />
+		</div>
 	<div class="span6">
-	<iframe width="100%" height="300px" name="a"></iframe>
+		<iframe width="100%" height="300px" name="a"></iframe>
 	</div>
-</div>
 </div>
 <%= link_to 'Back', root_path, :class => 'btn' %>
 </div>
