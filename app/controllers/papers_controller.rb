@@ -40,6 +40,7 @@ class PapersController < ApplicationController
 
   def update
     @paper.update_attributes(params[:paper])
+    puts params
     respond_with(current_author, @paper)
   end
 
@@ -74,15 +75,18 @@ class PapersController < ApplicationController
     end
     
     def scribd_upload_paper(author_id, paper_id, filename)
+      if (filename == "" || filename == nil)
+        return nil
+      end
+        
       Scribd::API.instance.key = '6a6ssxkqj19vilb8m2jr3semuffnvg'
       Scribd::API.instance.secret = 'sec-u7z2fe34090u51k7hilqk8h3dp'
-      
+  #    Scribd::API.instance.asynchronous = true
       begin
         Scribd::User.login 'hamidhasan1ahmed', 'zt6AQ3BKa6WqtGFf'
 
         # Set to phantom user
         #Scribd::API.instance.user = author_id.to_s
-        
         # Upload the document from a file
         print "Uploading a document with author id #{author_id}, paper id #{paper_id} and filename #{filename}"
 
