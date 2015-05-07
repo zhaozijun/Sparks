@@ -1,9 +1,8 @@
 <div class="container">
 	<p id="notice"><%= notice %></p>
 	<div class="row">
-		<h1>Paper information</h1>
+		<h1>Paper Information</h1>
 		<br />
-		<div class="container", background-color:#000000>
 			<p>
   			<b>Title:</b>
   			<%= @paper.title %>
@@ -16,19 +15,19 @@
 
 			<p>
   			<b>File:</b>
-  			<%= @paper.file %>
-				<%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn'%>
+  			<%= @paper.file %><br />
+				<%= link_to 'Download Paper', @paper.file_url, :class => "btn btn-mini"%>
 			</p>
 
 			<p>
   			<b>Demo:</b>
-  			<%= @paper.demo %>
-				<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn'%>
+  			<%= @paper.demo %><br />
+				<%= link_to 'Download Demo', @paper.demo_url, :class => "btn btn-mini"%>
 			</p>
-		</div>
+		
 	</div>
 	<div class="row">
-		<h1>List Questions</h1>
+		<h1>Question List</h1>
 		<br />
 		<div class="span6">
 			<table class="center table table-striped">
