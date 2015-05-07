@@ -1,0 +1,23 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @question.content %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @question.tag %>
+</p>
+
+<p>
+   <b> Anwser file:</b> <br />
+   <%= image_tag @question.avatar.url(:show) %>
+
+</p>
+
+<p>
+  <b>Anwser Text:</b>
+  <%= @question.answertext %>
+</p>

@@ -1,63 +1,70 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Paper information</h1>
+
+<div class="row">
+	<div class="span3">
+		
+
+<h1>Paper Information</h1>
 <br />
 <p>
   <b>Title:</b>
   <%= @paper.title %>
 </p>
 
-<p>
-  <b>Author:</b>
-  <%= @paper.author.name %>
-</p>
+	 <p>
+  	 <b>Author:</b>
+  	 <%= @paper.author.name %>
+	 </p>
 
-<p>
-  <b>File:</b>
-  <%= @paper.file %>
-	<%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn-mini'%>
-</p>
+	 <p>
+  	 <b>File:</b>
+  	 <%= @paper.file %>
+		 <%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn-mini'%>
+	 </p>
 
-<p>
-  <b>Demo:</b>
-  <%= @paper.demo %>
-	<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn-mini'%>
-</p>
+	 <p>
+  	 <b>Demo:</b>
+  	 <%= @paper.demo %>
+		 <%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn-mini'%>
+	 </p>
+	 <%= link_to 'Edit Paper', edit_author_paper_path(current_author, @paper), :class => 'btn' %>
+	 <br />
+	 <br />
+	</div>
+	<div class="span9">
+		<h1>List Questions</h1>
+		<br />
 
+		<table class="center table table-striped">
+  		<tr>
+				<th>No.</th>
+				<th>Tag</th>
+    		<th>Content</th>
+    		<th>Answertext</th>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+  		</tr>
 
-
-<%= link_to 'Edit Paper', edit_author_paper_path(current_author, @paper), :class => 'btn' %>
-<br />
-<br />
-
-<h1>List Questions</h1>
-<br />
-
-<table class="center table table-striped">
-  <tr>
-		<th>No.</th>
-		<th>Tag</th>
-    <th>Content</th>
-    <th>Answertext</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @questions.each_with_index do |question, index| %>
-  <tr>
-    <td><%= index + 1 %></td>
-		<td><%= question.tag %></td>
-    <td><%= question.content %></td>
-    <td><%= question.answertext %></td>
-    <td><%= link_to 'Show', paper_question_path(@paper, question), :class => 'btn btn-mini' %></td>
-    <td><%= link_to 'Edit', edit_paper_question_path(@paper, question), :class => 'btn btn-mini' %></td>
-    <td><%= link_to 'Destroy', [@paper, question], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
-  </tr>
-<% end %>
-</table>
-<br />
-<br />
-<%= link_to 'New Question', new_paper_question_path(@paper), :class => 'btn btn-primary' %>
-<br />
-<%= link_to 'Back', author_papers_path(current_author), :class => 'btn' %>
+			<% @questions.each_with_index do |question, index| %>
+  		<tr>
+    		<td><%= index + 1 %></td>
+				<td><%= question.tag %></td>
+    		<td><%= question.content %></td>
+    		<td><%= question.answertext %></td>
+    		<td><%= link_to 'Show', paper_question_path(@paper, question), :class => 'btn btn-mini' %></td>
+    		<td><%= link_to 'Edit', edit_paper_question_path(@paper, question), :class => 'btn btn-mini' %></td>
+    		<td><%= link_to 'Destroy', [@paper, question], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+  		</tr>
+			<% end %>
+		</table>
+		<br />
+		<br />
+		<%= link_to 'New Question', new_paper_question_path(@paper), :class => 'btn btn-primary' %>
+		<br />
+		<%= link_to 'Back', author_papers_path(current_author), :class => 'btn' %>
+	</div>
+</div>
+</div>
