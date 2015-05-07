@@ -36,9 +36,9 @@
 
     <%= javascript_include_tag "application" %>
   </head>
-  <body style="background: #F5F5F5;">
+  <body style="background: #FCFFFA;">
 
-    <div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-header">
         <div class="container">
           <a class="brand active" href="#">SPARKs</a>
