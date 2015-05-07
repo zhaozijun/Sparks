@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 
 gem 'carrierwave'
+gem 'rmagick'
 #gem 'carrierwave-viewer'
 
 gem 'rscribd'

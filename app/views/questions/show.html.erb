@@ -1,4 +1,3 @@
-
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -13,8 +12,7 @@
 
 <p>
    <b> Anwser file:</b> <br />
-   <%= image_tag @question.avatar.url(:show) %>
-
+<%= image_tag @question.image_url(:thumb) if @question.image? %>
 </p>
 
 <p>
@@ -23,6 +21,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_paper_question_path(@paper, @question), :class => 'btn' %> |
+<%= link_to 'Edit', edit_paper_question_path(@paper, @question) %> |
 <%= link_to 'Back', author_paper_path(current_author, @paper), :class => 'btn btn-lg btn-primary' %>
-

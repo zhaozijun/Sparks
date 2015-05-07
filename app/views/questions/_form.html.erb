@@ -21,15 +21,15 @@
    float:left;
    width:45%;
    height:100%;
-   background: #CCFF99;
-   border: 10px solid #CCFF99;
+   background: #66CCFF;
+   border: 10px solid #66CCFf;
 }
 #right_col {
    float:right;
    width:45%;
    height:100%;
-   background: #66CC99;
-   border: 10px solid #66CC99;
+   background: #66CCFF;
+   border: 10px solid #66CCFF;
 }
 </style>
 
@@ -49,9 +49,11 @@
          <%= link_to 'Back', paper_questions_path(@paper),:class => 'btn btn-lg btn-primary'%>
     </div>
      <div id="right_col">
-        <h3>Please upload your anwser image:</h3>
-        <div class ="field" style="float: center">
-             <%= f.file_field :avatar %>    
+        <h3>Please upload your anwser image:</h3> <br />
+         <%= f.file_field :image %><br />            
+          <div class ="field" style="float: center"><br />              
+             <%= f.label :remote_image_url %><br />
+             <%= f.text_field :remote_image_url %>
         </div> 
         <div class="field">
         <%= f.label :answertext %><br />
