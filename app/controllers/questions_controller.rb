@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_filter :set_question, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :authenticate_author!, only: [:userquestionindex, :userquestionshow]
+  skip_before_filter :authenticate_author!, only: [:userquestionindex, :userquestionshow, :answer]
   respond_to :html
 
   def index
@@ -57,6 +57,15 @@ class QuestionsController < ApplicationController
     end
     @paper = Paper.find(params[:paper_id])
     @question = @paper.questions.find(params[:id])
+  end
+  
+  def answer
+    if author_signed_in?
+      sign_out current_author
+    end
+    @paper = Paper.find(params[:paper_id])
+    @question = @paper.questions.find(params[:id])
+    render :layout => false
   end
 
   private

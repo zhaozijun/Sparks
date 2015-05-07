@@ -1,5 +1,6 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
-
+<div class="row">
 <h1>Paper information</h1>
 <br />
 
@@ -25,30 +26,34 @@
 	<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn'%>
 </p>
 
-<h1>List Questions</h1>
-<br />
+<div class="row">
+	<h1>List Questions</h1>
+	<br />
+	<div class="span6">
+		<table class="center table table-striped">
+  		<tr>
+				<th>No.</th>
+				<th>Tag</th>
+    		<th>Content</th>
+				<th></th>
+  		</tr>
 
-<table class="center table table-striped">
-  <tr>
-		<th>No.</th>
-		<th>Tag</th>
-    <th>Content</th>
-    <th>Answertext</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @questions.each_with_index do |question, index| %>
-  <tr>
-    <td><%= index + 1 %></td>
-		<td><%= question.tag %></td>
-    <td><%= question.content %></td>
-    <td><%= question.answertext %></td>
-    <td><%= link_to 'Show', question_userquestionshow_path(@paper, question), :class => 'btn btn-mini' %></td>
-  </tr>
-<% end %>
-</table>
-<br />
-<br />
-<%= link_to 'Back', root_path, :class => 'btn' %>
+			<% @questions.each_with_index do |question, index| %>
+  		<tr>
+    		<td><%= index + 1 %></td>
+				<td><%= question.tag %></td>
+    		<td><%= question.content %></td>
+    		<td><a href="/papers/<%=@paper.id%>/answer/<%= question.id %>" target="a">Show</a></td>
+  		</tr>
+			<% end %>
+		</table>
+		<br />
+		<br />
+		<%= link_to 'Back', root_path, :class => 'btn' %>
+	</div>
+	<div class="span6">
+	<iframe width="100%" height="300px" name="a"></iframe>
+	</div>
+</div>
+</div>
+</div>

@@ -40,6 +40,7 @@ SPARKs::Application.routes.draw do
   get 'papers/:id' => 'papers#userpapershow', :as => :paper_userpapershow
   get 'papers/:paper_id/userquestionindex' => 'questions#userquestionindex', :as => :question_userquestionindex
   get 'papers/:paper_id/userquestions/:id' => 'questions#userquestionshow', :as => :question_userquestionshow
+  get 'papers/:paper_id/answer/:id' => 'questions#answer', :as => :question_answer
   
   devise_for :authors, :path => "accounts"
   
