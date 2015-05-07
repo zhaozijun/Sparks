@@ -26,7 +26,7 @@ class PapersController < ApplicationController
   def create
     @paper = current_author.papers.new(params[:paper])
     @paper.save
-    id_and_key = scribd_upload_paper(@paper.author_id, @paper.id, @paper.file.filename)
+    id_and_key = scribd_upload_paper(@paper.author_id, @paper.id, @paper.demo.filename)
     if (id_and_key != nil)
       @paper.scribd_doc_id = id_and_key["doc_id"]
       @paper.scribd_access_key = id_and_key["access_key"]
@@ -89,7 +89,7 @@ class PapersController < ApplicationController
         # Upload the document from a file
         print "Uploading a document with author id #{author_id}, paper id #{paper_id} and filename #{filename}"
 
-        doc = Scribd::Document.upload(:file => "#{Rails.root.to_s}/public/uploads/paper/file/#{paper_id}/#{filename}")
+        doc = Scribd::Document.upload(:file => "#{Rails.root.to_s}/public/uploads/paper/demo/#{paper_id}/#{filename}")
         # puts "Done doc_id=#{doc.id}, doc_access_key=#{doc.access_key}"
 
         # Poll API until conversion is complete

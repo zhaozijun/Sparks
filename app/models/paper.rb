@@ -22,6 +22,7 @@ class Paper < ActiveRecord::Base
   mount_uploader :demo, DemoUploader
   
   def scribd_url
-    "http://www.scribd.com/word/full/#{self.scribd_doc_id}?access_key=#{self.scribd_access_key}"
+    Scribd::Document.find(self.scribd_doc_id).download_url
+    #"http://www.scribd.com/word/full/#{self.scribd_doc_id}?access_key=#{self.scribd_access_key}"
   end
 end

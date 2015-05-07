@@ -1,31 +1,56 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 <div class="row">
-<h1>Paper information</h1>
-<br />
+    <div class="span4">
+	<h1>Paper information</h1>
+	<br />
 
-<p>
-  <b>Title:</b>
-  <%= @paper.title %>
-</p>
+	<p>
+  		  <b>Title:</b>
+  		<%= @paper.title %>
+	</p>
 
-<p>
-  <b>Author:</b>
-  <%= @paper.author.name %>
-</p>
+	<p>
+ 	   <b>Author:</b>
+  	 <%= @paper.author.name %>
+	</p>
 
-<p>
-  <b>File:</b>
-  <%= @paper.file %>
-	<%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn'%>
-</p>
+	<p>
+	  <b>File:</b>
+	  <%= @paper.file %>
+		<%= link_to 'Download Paper', @paper.file_url, :class => 'btn btn'%>
+	</p>
 
-<p>
-  <b>Demo:</b>
-  <%= @paper.demo %>
-	<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn'%>
-</p>
+	<p>
+	  <b>Demo:</b>
+	  <%= @paper.demo %>
+		<%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn'%>
+	</p>
+	</div>
+	
+	<div id="scribd" class="span8">
+		<script type="text/javascript" src='http://www.scribd.com/javascripts/scribd_api.js'></script>
 
+		<div id='embedded_doc'></div>
+
+		<script type='text/javascript'>
+		  var scribd_doc = scribd.Document.getDoc('<%= @paper.scribd_doc_id %>', '<%= @paper.scribd_access_key %>');
+
+		  var onDocReady = function(e){
+
+		  }
+
+		  scribd_doc.addParam('height', 420);
+		  scribd_doc.addParam('width', 640);
+	      scribd_doc.addParam('auto_size', true);
+	      scribd_doc.addParam('mode', 'slideshow');
+		  scribd_doc.addParam('jsapi_version', 2);
+		  scribd_doc.addEventListener('docReady', onDocReady);
+		  scribd_doc.write('embedded_doc');
+		</script>
+	</div>
+
+</div>
 <div class="row">
 	<h1>List Questions</h1>
 	<br />
@@ -54,7 +79,6 @@
 	<div class="span6">
 	<iframe width="100%" height="300px" name="a"></iframe>
 	</div>
-</div>
 </div>
 <%= link_to 'Back', root_path, :class => 'btn' %>
 </div>

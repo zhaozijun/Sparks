@@ -4,7 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  content             :text
-#  anwsertext          :text
+#  answertext          :text
 #  paper_id            :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
