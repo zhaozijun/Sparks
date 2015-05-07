@@ -26,6 +26,15 @@ class PapersController < ApplicationController
   def create
     @paper = current_author.papers.new(params[:paper])
     @paper.save
+    id_and_key = scribd_upload_paper(@paper.author_id, @paper.id, @paper.file.filename)
+    if (id_and_key != nil)
+      @paper.scribd_doc_id = id_and_key["doc_id"]
+      @paper.scribd_access_key = id_and_key["access_key"]
+    else 
+      @paper.scribd_doc_id = nil
+      @paper.scribd_access_key = nil
+    end
+    @paper.save
     respond_with(current_author, @paper)
   end
 
@@ -66,4 +75,50 @@ class PapersController < ApplicationController
     def user_params
       params.require(:paper).permit(:title, :file, :demo)
     end
+    
+    def scribd_upload_paper(author_id, paper_id, filename)
+      Scribd::API.instance.key = '6a6ssxkqj19vilb8m2jr3semuffnvg'
+      Scribd::API.instance.secret = 'sec-u7z2fe34090u51k7hilqk8h3dp'
+      
+      begin
+        Scribd::User.login 'hamidhasan1ahmed', 'zt6AQ3BKa6WqtGFf'
+
+        # Set to phantom user
+        #Scribd::API.instance.user = author_id.to_s
+        
+        # Upload the document from a file
+        print "Uploading a document with author id #{author_id}, paper id #{paper_id} and filename #{filename}"
+
+        doc = Scribd::Document.upload(:file => "#{Rails.root.to_s}/public/uploads/paper/file/#{paper_id}/#{filename}")
+        # puts "Done doc_id=#{doc.id}, doc_access_key=#{doc.access_key}"
+
+        # Poll API until conversion is complete
+        while (doc.conversion_status == 'PROCESSING')
+          puts "Document conversion is processing"
+          sleep(2) # Very important to sleep to prevent a runaway loop that will get your app blocked
+        end
+        puts "Document conversion is complete"
+
+        # Edit various options of the document
+        # Note you can also edit options before your doc is done converting
+        doc.title = "#{filename}"
+        doc.description = "I'm testing out the Scribd API!"
+        doc.access = 'private' #TODO: change
+        doc.language = 'en'
+        doc.license = 'c'
+        doc.tags = 'test,api'
+        doc.show_ads = true
+        doc.save
+
+        # Delete the uploaded document
+        print "Deleting a document ... "
+        #doc.destroy
+        puts "Done doc_id=#{doc.id} access_key=#{doc.access_key}"
+        return {"doc_id" => doc.id, "access_key" => doc.access_key }
+      rescue Scribd::ResponseError => e
+        puts "failed code=#{e.code} error='#{e.message}'"
+        return nil
+      end
+    end
+    
 end
