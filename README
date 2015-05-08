@@ -1,0 +1,25 @@
+Github link:
+
+https://github.com/zhaozijun/Sparks
+
+Pivotal Tracker Link:
+
+https://www.pivotaltracker.com/n/projects/1309830
+
+Heroku app link:
+
+http://sparks-upenn.herokuapp.com
+---------------------
+
+Writeup:
+_Views_
+Does the view match your initial mockup? In general, the functionality of our initial, intended mockups match with our implementation. For the primary view - the "show paper" page or the page in which a paper is shown with its slides, download links, and question/answers - this page is logically the same, except that instead of having the q/a's on the right-hand side, we moved them to the bottom and kept the slideshow and metadata in the top (so a top/bottom split, as opposed to a left/right split). We did this because it felt a little more aesthetically pleasing, and made more logical sense in terms of flow; but the functionality is essentially the same as what the mockup intended. 
+
+_Models/Functionality_
+We have completed all major functions of the application. In this iteration in particular, we created a mechanism to display the demo/slideshow/powerpoint of a paper directly on the "show paper" page, with arrows to move left and right to move through the slide show, and a zoom in/out buttom as well (this required implementing and linking with the Scribd api).
+
+We also implemented have the question and answer interaction working correctly: we can click a question, which will then display its answer text right on the page dynamically, without loading a separate page for the questions or answers. 
+
+There were some minor features that we did not implement, since we did not get enough time to implement them and polish them / have them be bug-free. One example are the user-provided custom captions for each individual slide, which we had some problems getting to work correctly. We ulitmately settled on a slightly less-featured but more polished application.
+
+
