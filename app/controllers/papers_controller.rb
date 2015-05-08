@@ -120,12 +120,12 @@ class PapersController < ApplicationController
         # Edit various options of the document
         # Note you can also edit options before your doc is done converting
         doc.title = "#{filename}"
-        doc.description = "I'm testing out the Scribd API!"
+        doc.description = "#{filename}"
         doc.access = 'private'
         doc.language = 'en'
         doc.license = 'c'
         doc.tags = 'test,api'
-        doc.show_ads = true
+        doc.show_ads = false
         doc.save
 
         # Delete the uploaded document

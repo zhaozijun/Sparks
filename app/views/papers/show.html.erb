@@ -23,9 +23,9 @@
 	 <p>
   	 <b>Demo:</b>
   	 <%= @paper.demo %>
-		 <%= link_to 'Download Demo', @paper.demo_url, :class => 'btn btn-mini'%>
+		 <%= link_to 'Download Demo', scribd_download_link(@paper.scribd_doc_id), :class => 'btn btn-mini'%>
 	 </p>
-	 <%= link_to 'Edit Paper', edit_author_paper_path(current_author, @paper), :class => 'btn' %>
+		 <%= link_to 'Edit Paper', edit_author_paper_path(current_author, @paper), :class => 'btn' %>
 	 <br />
 	 <br />
 	</div>
