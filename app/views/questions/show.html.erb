@@ -11,7 +11,7 @@
 </p>
 
 <p>
-   <b> Anwser file:</b> <br />
+   <b> Answer file:</b> <br />
 <%= image_tag @question.image_url(:thumb) if @question.image? %>
 </p>
 
@@ -21,5 +21,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_paper_question_path(@paper, @question) %> |
+<%= link_to 'Edit', edit_paper_question_path(@paper, @question), :class => 'btn btn-lg btn-primary' %> |
 <%= link_to 'Back', author_paper_path(current_author, @paper), :class => 'btn btn-lg btn-primary' %>

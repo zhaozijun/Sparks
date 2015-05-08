@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
     <div class="span4">
-	<h1>Paper Information</h1>
+	<h3>Paper Information</h3>
 	<br />
 
 	<p>
@@ -52,6 +52,7 @@
 	</div>
 
 </div>
+<br />
 	<div class="row">
 		<h1>Question List</h1>
 		<br />
@@ -69,7 +70,7 @@
     			<td><%= index + 1 %></td>
 					<td><%= question.tag %></td>
     			<td><%= question.content %></td>
-    			<td><a href="/papers/<%=@paper.id%>/answer/<%= question.id %>" target="a">Show</a></td>
+    			<td><a href="/papers/<%=@paper.id%>/answer/<%= question.id %>" target="a" class="btn btn-mini">Show</a></td>
   			</tr>
 				<% end %>
 			</table>

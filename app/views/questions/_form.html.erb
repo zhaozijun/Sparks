@@ -42,7 +42,7 @@
          <%= f.submit "Create Question", :class => 'btn btn-lg btn-primary' %>
          </div>
          <br />
-         <%= link_to 'Back', paper_questions_path(@paper),:class => 'btn btn-lg btn-primary'%>
+         <%= link_to 'Back',author_paper_path(current_author, @paper),:class => 'btn btn-lg btn-primary'%>
     </div>
      <div id="right_col">
         <h3>Please upload your anwser image:</h3> <br />
