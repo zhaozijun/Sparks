@@ -39,16 +39,12 @@ class PapersController < ApplicationController
   end
 
   def update
-    puts "HELLO WORLD params: #{params}\n"
-    puts "params paper: #{params[:paper]}\n"
-    demo = params[:paper][:demo]
-    puts "demo: #{demo}"
-    
-    filename = demo.original_filename
+    demo = params[:paper][:demo]    
     @paper.update_attributes(params[:paper])
-    
-    puts @paper
+
+    # Update the demo if the slides have changed
     if (demo != nil)
+      filename = demo.original_filename
       id_and_key = scribd_upload_paper(@paper.author_id, @paper.id, @paper.demo.filename)
       if (id_and_key != nil)
         @paper.scribd_doc_id = id_and_key["doc_id"]
@@ -57,10 +53,10 @@ class PapersController < ApplicationController
       end
     end
     
-    if (params[:paper]["remove_demo"] == 1)
-      @paper.scribd_doc_id = nil
-      @paper.scribd_access_key = nil
-      @paper.save
+    # Remove the demo if "remove_demo" is set to "1"
+    if (params[:paper]["remove_demo"] == "1")
+      destroy_scribd = {scribd_doc_id: nil, scribd_access_key: nil}
+      @paper.update_attributes(destroy_scribd)
     end
     respond_with(current_author, @paper)
   end
