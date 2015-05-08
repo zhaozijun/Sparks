@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-SPARKs::Application.config.secret_token = 'a9f11d85c9061ad6543c62a1c2e7fc57f4be4916fff91d96d1af4a3528e32686e8d149134362aeadc8aa9b970410a5f28ee7c67d844a82b703a0b005daea635d'
+SPARKs::Application.config.secret_token = ENV["SECRET_TOKEN"] || '24c371b3df2c3fb795f5ef8cf1e23055ee4b1257f8b474611880c71d7e9e50866972cfea65f31106ffff2d2a43615721f14ac3f9343079650f61fa56f6eb4110'
