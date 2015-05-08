@@ -60,7 +60,9 @@ class QuestionsController < ApplicationController
   end
   
   def answer
-    
+    if author_signed_in?
+      sign_out current_author
+    end
     @paper = Paper.find(params[:paper_id])
     @question = @paper.questions.find(params[:id])
     render :layout => false
