@@ -21,14 +21,12 @@
    float:left;
    width:45%;
    height:100%;
-   background: #66CCFF;
    border: 10px solid #66CCFf;
 }
 #right_col {
    float:right;
    width:45%;
    height:100%;
-   background: #66CCFF;
    border: 10px solid #66CCFF;
 }
 </style>
@@ -42,8 +40,8 @@
          <%= f.label :content %><br />
          <%= f.text_area :content %>
          </div> 
-         <div class="actions" style="float:left">
-         <%= f.submit %>
+         <div class="actions" style="">
+         <%= f.submit "Create Question", :class => 'btn btn-lg btn-primary' %>
          </div>
          <br />
          <%= link_to 'Back', paper_questions_path(@paper),:class => 'btn btn-lg btn-primary'%>
