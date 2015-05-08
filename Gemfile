@@ -17,10 +17,6 @@ gem 'rmagick'
 
 gem 'rscribd'
 
-group :produciton do 
-     gem 'pg'
-end
-
 group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
