@@ -13,6 +13,7 @@
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  tag                 :string(255)
+#  image               :string(255)
 #
 
 class Question < ActiveRecord::Base
