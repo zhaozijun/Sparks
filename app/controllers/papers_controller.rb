@@ -39,8 +39,29 @@ class PapersController < ApplicationController
   end
 
   def update
+    puts "HELLO WORLD params: #{params}\n"
+    puts "params paper: #{params[:paper]}\n"
+    demo = params[:paper][:demo]
+    puts "demo: #{demo}"
+    
+    filename = demo.original_filename
     @paper.update_attributes(params[:paper])
-    puts params
+    
+    puts @paper
+    if (demo != nil)
+      id_and_key = scribd_upload_paper(@paper.author_id, @paper.id, @paper.demo.filename)
+      if (id_and_key != nil)
+        @paper.scribd_doc_id = id_and_key["doc_id"]
+        @paper.scribd_access_key = id_and_key["access_key"]
+        @paper.save
+      end
+    end
+    
+    if (params[:paper]["remove_demo"] == 1)
+      @paper.scribd_doc_id = nil
+      @paper.scribd_access_key = nil
+      @paper.save
+    end
     respond_with(current_author, @paper)
   end
 
@@ -104,7 +125,7 @@ class PapersController < ApplicationController
         # Note you can also edit options before your doc is done converting
         doc.title = "#{filename}"
         doc.description = "I'm testing out the Scribd API!"
-        doc.access = 'private' #TODO: change
+        doc.access = 'private'
         doc.language = 'en'
         doc.license = 'c'
         doc.tags = 'test,api'
