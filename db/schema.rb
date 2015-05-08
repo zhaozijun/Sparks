@@ -35,10 +35,12 @@ ActiveRecord::Schema.define(:version => 20150507215559) do
   create_table "papers", :force => true do |t|
     t.string   "title"
     t.integer  "author_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "file"
     t.string   "demo"
+    t.string   "scribd_doc_id"
+    t.string   "scribd_access_key"
   end
 
   add_index "papers", ["author_id"], :name => "index_papers_on_author_id"
